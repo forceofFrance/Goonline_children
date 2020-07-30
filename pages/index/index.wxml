@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<form bindsubmit='formsubmit' bindreset='formreset'>
+
+<view class='login'>
+
+  <text class='hint'>GoOnline 账号</text>
+
+  <view class="form-wrap">
+    <view class="flex-wrap input-wrap">
+      <text class="label"> 账号 </text>
+      <input value="" name="user_name" class="account-info-input" />
+    </view>
+    <view class="flex-wrap input-wrap">
+      <text class="label"> 密码 </text>
+      <input value="" name="user_password" class="account-info-input" />
+    </view>
+
+  </view>
+
+  
+  
+  <text class='hint'>若出现问题，请联系我们的工作人员</text>
+  <button class='mysubmit' type='primary' form-type="submit"> 登录 </button>
+</view>
+
+
+</form>
+
+<captcha id="captcha" wx:if="{{loadCaptcha}}" gt="{{gt}}" challenge="{{challenge}}" offline="{{offline}}"  bindonSuccess="captchaSuccess"
+ />
+
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信账号登录 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">chidren_wechat_v0.1.0</text>
+  </view>
+</view>
+
